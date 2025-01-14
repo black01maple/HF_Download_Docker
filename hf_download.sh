@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # 检查是否找到宿主机挂载点
+mount_info=$(grep " $container_path " /proc/self/mountinfo)
 if [ -z "$mount_info" ]; then
     echo "没有挂载宿主机模型下载目录，下载终止"
     echo "请通过 docker run -v 我的下载目录:/opt/saved_model_parameters 来挂载路径"

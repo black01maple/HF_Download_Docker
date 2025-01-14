@@ -34,6 +34,7 @@ RUN mkdir -p /opt/saved_model_parameters
 
 # 复制下载指令
 COPY hf_download.sh /opt/hf_download.sh
+RUN chmod +x /opt/hf_download.sh
 
 # Set the entry point to activate the virtual environment and run the command line tool
 ENTRYPOINT ["/bin/bash", "-c", "sh /opt/hf_download.sh"]
